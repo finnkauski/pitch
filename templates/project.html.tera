@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project Pitch Template</title>
+</head>
+<body>
+  <h1>{{projectname}}</h1>
+</body>
+</html>

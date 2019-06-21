@@ -26,7 +26,7 @@
   </script>
 </head>
 <body>
-  <div class="container-fluid">
+  <div class="container">
     <div id="header" class="row">
       <div class="col jumbotron">
         <h1>The DSC Project Pitch creator</h1>
@@ -38,20 +38,154 @@
           <div class="col">
             <h2>This is a tool to allow for easy pitch
             creation</h2>
+            <hr>
             <p>Often there is a lot of work that needs to be done
-            to create uniform pitches</p>
-            <form>
+            to create uniform pitches. This tool intends to give
+            you the ability to provide information in a form which
+            will then be converted into the format of your
+            choice.</p>
+            <form id="mainform" name="mainform" method="post">
+              <hr>
+              <h2>Basic information</h2>
+              <hr>
+              <div class="form-row">
+                <div class="form-group col">
+                  <label for="projectname">Project name</label>
+                  <input type="text" id="projectname" class=
+                  "form-control" name="projectname">
+                </div>
+              </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="projectName">Project name</label>
-                  <input type="text" id="projectName" class=
-                  "form-control" name="project">
+                  <label for="pitchdate">Pitch date</label>
+                  <input type="date" id="pitchdate" class=
+                  "form-control" name="pitchdate">
+                </div>
+              </div>
+              <hr>
+              <h2>Introduction</h2>
+              <hr>
+              <div class="form-row">
+                <div class="form-group col">
+                  <label for="intro1">What is this about?</label>
+                  <textarea id="intro1" class="form-control" name=
+                  "intro1"></textarea>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col">
+                  <label for="intro2">What is required?</label>
+                  <textarea id="intro2" class="form-control" name=
+                  "intro2"></textarea>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col">
+                  <label for="intro3">Impact?</label>
+                  <textarea id="intro3" class="form-control" name=
+                  "intro3"></textarea>
+                </div>
+              </div>
+              <hr>
+              <h2>People & Roles</h2>
+              <hr>
+              <div class="form-row">
+                <div class="form-group col-4">
+                  <label for="people1">How many people are
+                  required?</label> <input type="text" id="people1"
+                  class="form-control" name="people1">
+                </div>
+                <div class="form-group col">
+                  <label for="people2">More info:</label>
+                  <textarea id="people2" class="form-control" name=
+                  "people2"></textarea>
+                </div>
+              </div>
+              <hr>
+              <h2>The Six Dimensions</h2>
+              <hr>
+              <div class="card-group">
+                <div class=
+                "card text-white text-center bg-primary">
+                  <div class="card-body">
+                    <div class="card-text">
+                      col1
+                    </div>
+                  </div>
+                </div>
+                <div class=
+                "card text-white text-center bg-secondary">
+                  <div class="card-body">
+                    <div class="card-text">
+                      col2
+                    </div>
+                  </div>
+                </div>
+                <div class=
+                "card text-white text-center bg-success">
+                  <div class="card-body">
+                    <div class="card-text">
+                      col3
+                    </div>
+                  </div>
+                </div>
+                <div class="card text-white text-center bg-danger">
+                  <div class="card-body">
+                    <div class="card-text">
+                      col4
+                    </div>
+                  </div>
+                </div>
+                <div class=
+                "card text-white text-center bg-warning">
+                  <div class="card-body">
+                    <div class="card-text">
+                      col5
+                    </div>
+                  </div>
+                </div>
+                <div class="card text-white text-center bg-dark">
+                  <div class="card-body">
+                    <div class="card-text">
+                      col6
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="card text-primary border-primary">
+                <div class="card-body">
+                  <div class="card-text">
+                    <h2>1. col1</h2>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="col1_p1">Criterion1</label>
+                  <textarea id="col1_p1" class="form-control" name=
+                  "col1_p1"></textarea>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="projectMonth">Pitch date</label>
-                  <input type="month" id="projectMonth" class=
-                  "form-control" name="project" min="2017-01">
+                  <label for="col1_p2">Criterion2</label>
+                  <textarea id="col1_p2" class="form-control" name=
+                  "col1_p2"></textarea>
                 </div>
+                <div class="form-group col-md-6">
+                  <label for="col1_p3">Criterion3</label>
+                  <textarea id="col1_p3" class="form-control" name=
+                  "col1_p3"></textarea>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="col1_p4">Criterion4</label>
+                  <textarea id="col1_p4" class="form-control" name=
+                  "col1_p4"></textarea>
+                </div>
+              </div>
+              <div class="form-row">
+                <button type="submit" class=
+                "btn btn-primary col">Convert</button>
               </div>
             </form>
           </div>

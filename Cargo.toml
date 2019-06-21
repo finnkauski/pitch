@@ -15,6 +15,9 @@ rocket_contrib = {version = "*", features = ["diesel_postgres_pool", "tera_templ
 diesel = {version = "*", features = ["postgres", "r2d2"], default-features= false}
 diesel_migrations = "*"
 
+# serde
+serde = "*"
+serde_derive = "*"
 
-# other
-cute = "*"
+# handle pandoc
+pandoc = "*"
