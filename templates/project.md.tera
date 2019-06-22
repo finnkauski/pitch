@@ -1,0 +1,43 @@
+# Project: {{projectname}}
+
+Pitched on: {{pitchdate}}
+
+# Intro
+
+## What is this about?
+
+{{intro1}}
+
+## What is required?
+
+{{intro2}}
+
+## What is the impact?
+
+{{intro3}}
+
+# People & Roles
+
+## People needed: {{people1}}
+
+## More detail:
+
+{{people2}}
+
+# Column-1
+
+## Part 1
+
+{{col1_p1}}
+
+## Part 2
+
+{{col1_p2}}
+
+## Part 3
+
+{{col1_p3}}
+
+## Part 4
+
+{{col1_p4}}
