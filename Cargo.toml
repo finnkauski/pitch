@@ -8,7 +8,7 @@ edition = "2018"
 
 [dependencies]
 # rocket
-rocket = "*"
+rocket = "0.4.1"
 rocket_contrib = {version = "*", features = ["diesel_postgres_pool", "tera_templates", "serve"], default-features = false}
 
 # diesel
