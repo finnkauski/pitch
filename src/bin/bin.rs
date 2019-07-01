@@ -9,12 +9,13 @@ use elevator_pitch::{
     proj_io::{pandoc_out, write_out},
     UserInput,
 };
+use rocket::config::{Config, Environment};
 use rocket::request::Form;
 use rocket_contrib::serve::StaticFiles;
 use rocket_contrib::templates::tera::Tera;
 use rocket_contrib::templates::Template;
 use std::collections::HashMap;
-
+use std::env::var;
 // pandoc
 
 #[get("/")]
@@ -43,8 +44,18 @@ fn handle_form(mainform: Form<UserInput>) -> Template {
     Template::render("index", UserInput::default())
 }
 
+fn make_config() -> Config {
+    let port: u16 = var("PORT").unwrap().parse().unwrap();
+    println!("{}", port);
+    let config = Config::build(Environment::Production)
+        .port(port)
+        .finalize()
+        .unwrap();
+    config
+}
+
 fn main() {
-    rocket::ignite()
+    rocket::custom(make_config())
         .mount("/", routes![home, handle_form])
         .mount(
             "/",
