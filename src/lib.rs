@@ -7,10 +7,11 @@ extern crate serde_derive;
 pub mod proj_io;
 pub mod schema;
 
-#[derive(FromForm, Debug, Serialize, Deserialize)]
+#[derive(FromForm, Debug, Serialize, Deserialize, Default)]
 pub struct UserInput {
     projectname: String,
     pitchdate: String,
+    pub outputformat: String,
     intro1: String,
     intro2: String,
     intro3: String,

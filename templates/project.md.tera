@@ -1,4 +1,4 @@
-# Project: {{projectname}}
+# {{projectname}}
 
 Pitched on: {{pitchdate}}
 
@@ -41,3 +41,4 @@ Pitched on: {{pitchdate}}
 ## Part 4
 
 {{col1_p4}}
+
