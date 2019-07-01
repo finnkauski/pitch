@@ -25,11 +25,14 @@ fn home() -> Template {
 
 pub fn process_form(input: UserInput) {
     // deal with form
-    let t = Tera::new("templates/**/*").unwrap();
-    let rendered = t.render("project.md.tera", &input).unwrap();
-
-    write_out(&rendered, "static/outputs/output.md").expect("Failed to render template!");
-    pandoc_out(&rendered, "static/outputs".to_owned(), input.outputformat)
+    let new_template = Tera::new("templates/**/*");
+    if let Ok(t) = new_template {
+        let rendered = t.render("project.md.tera", &input).unwrap();
+        write_out(&rendered, "static/outputs/output.md").expect("Failed to render template!");
+        pandoc_out(&rendered, "static/outputs".to_owned(), input.outputformat)
+    } else if let Err(e) = new_template {
+        println!("Error locating template directory: {}", e);
+    }
 }
 
 #[post("/", data = "<mainform>")]
