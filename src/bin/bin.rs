@@ -20,8 +20,8 @@ use std::env::var;
 
 #[get("/")]
 fn home() -> Template {
-    let context: HashMap<i8, i8> = HashMap::new();
-    Template::render("index", context)
+    let c: HashMap<_, _> = vec![("overlay", "none")].into_iter().collect();
+    Template::render("index", c)
 }
 
 pub fn process_form(input: UserInput) {
@@ -30,7 +30,7 @@ pub fn process_form(input: UserInput) {
     if let Ok(t) = new_template {
         let rendered = t.render("project.md.tera", &input).unwrap();
         write_out(&rendered, "static/outputs/output.md").expect("Failed to render template!");
-        pandoc_out(&rendered, "static/outputs".to_owned(), input.outputformat)
+        pandoc_out(&rendered, "static".to_owned(), input.outputformat)
     } else if let Err(e) = new_template {
         println!("Error locating template directory: {}", e);
     }
@@ -41,7 +41,8 @@ fn handle_form(mainform: Form<UserInput>) -> Template {
     process_form(mainform.into_inner());
 
     // return main home page
-    Template::render("index", UserInput::default())
+    let c: HashMap<_, _> = vec![("overlay", "block")].into_iter().collect();
+    Template::render("index", c)
 }
 
 fn make_config() -> Config {
