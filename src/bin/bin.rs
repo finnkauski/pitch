@@ -31,7 +31,7 @@ pub fn process_form(input: UserInput) {
     let new_template = Tera::new("templates/**/*");
     if let Ok(t) = new_template {
         let rendered = t.render("project.md.tera", &input).unwrap();
-        write_out(&rendered, "static/outputs/output.md").expect("Failed to render template!");
+        write_out(&rendered, "static/output.md").expect("Failed to render template!");
         pandoc_out(&rendered, "static".to_owned(), input.outputformat)
     } else if let Err(e) = new_template {
         println!("Error locating template directory: {}", e);
@@ -49,7 +49,7 @@ fn handle_form(mainform: Form<UserInput>) -> Template {
 
 #[get("/<file..>")]
 fn files(file: PathBuf) -> Option<NamedFile> {
-    NamedFile::open(std::path::Path::new("static/").join(file)).ok()
+    NamedFile::open(file).ok()
 }
 
 fn make_config() -> Config {
