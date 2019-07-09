@@ -11,11 +11,13 @@ use elevator_pitch::{
 };
 use rocket::config::{Config, Environment};
 use rocket::request::Form;
+use rocket::response::NamedFile;
 use rocket_contrib::serve::StaticFiles;
 use rocket_contrib::templates::tera::Tera;
 use rocket_contrib::templates::Template;
 use std::collections::HashMap;
 use std::env::var;
+use std::path::PathBuf;
 // pandoc
 
 #[get("/")]
@@ -43,6 +45,11 @@ fn handle_form(mainform: Form<UserInput>) -> Template {
     // return main home page
     let c: HashMap<_, _> = vec![("overlay", "block")].into_iter().collect();
     Template::render("index", c)
+}
+
+#[get("/<file..>")]
+fn files(file: PathBuf) -> Option<NamedFile> {
+    NamedFile::open(std::path::Path::new("static/").join(file)).ok()
 }
 
 fn make_config() -> Config {
