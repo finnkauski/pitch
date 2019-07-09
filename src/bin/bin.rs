@@ -58,10 +58,7 @@ fn make_config() -> Config {
 fn main() {
     rocket::custom(make_config())
         .mount("/", routes![home, handle_form])
-        .mount(
-            "/",
-            StaticFiles::from(concat!(env!("CARGO_MANIFEST_DIR"), "/static")),
-        )
+        .mount("/", StaticFiles::from("static"))
         .attach(Template::fairing())
         .launch();
 }
