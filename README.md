@@ -8,4 +8,4 @@ Essentailly its a web app written in rust that wraps around Pandoc and generates
 by parsing a simple web form.
 
 # Caveats
-Not unit tested or documented. 
+Not unit tested or documented as it is a proof of concept on short notice. 
